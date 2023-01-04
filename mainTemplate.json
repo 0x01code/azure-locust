@@ -25,7 +25,7 @@
     }
   },
   "variables": {
-    "locustImage": "locustio/locust:1.1.1",
+    "locustImage": "locustio/locust:2.14.1",
     "location": "[parameters('location')]",
     "prefix": "[uniqueString(resourceGroup().id)]",
     "azureCliImage": "mcr.microsoft.com/azure-cli",
@@ -98,8 +98,8 @@
               ],
               "resources": {
                 "requests": {
-                  "cpu": 1,
-                  "memoryInGb": 1
+                  "cpu": 4,
+                  "memoryInGb": 4
                 }
               }
             }
@@ -209,8 +209,8 @@
               ],
               "resources": {
                 "requests": {
-                  "cpu": 1.5,
-                  "memoryInGb": 0.5
+                  "cpu": 4,
+                  "memoryInGb": 4
                 }
               },
               "volumeMounts": [
