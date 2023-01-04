@@ -8,4 +8,4 @@ class QuickstartUser(HttpUser):
 
     @task
     def index_page(self):
-        self.client.get("/")
+        self.client.get("/dstat")
