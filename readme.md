@@ -136,7 +136,7 @@ az storage file upload --account-name <prefix> -s scripts --source locustfile.py
 ```
 Then restart containers:
 ```
-az container list --resource-group ${RG} --query '[].name' -o tsv | sed 's/\r$//' | xargs -I {} az container restart --no-wait --resource-group ${RG} --name {} 
+az container list --resource-group ${RG} --query '[].name' -o tsv | sed 's/\r$//' | sed -E 's/[A-Za-z0-9]+-provisioner//' | xargs -I {} az container restart --no-wait --resource-group ${RG} --name {} 
 ```
 
 ### 4. Cleanup (CLI)
