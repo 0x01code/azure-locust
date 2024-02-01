@@ -141,9 +141,16 @@ az container list --resource-group ${RG} --query '[].name' -o tsv | sed 's/\r$//
 
 ### 4. Cleanup (CLI)
 
-Remove resources from Azure:
+#### Options 1: Remove resources from Azure:
 ```
 az group delete --name ${RG} --yes
+```
+
+#### Options 2: Remove Container and Storage
+```
+az container list --resource-group ${RG} --query '[].name' -o tsv | sed 's/\r$//' | xargs -I {} az container stop --name {} --resource-group ${RG} --yes && \
+az container list --resource-group ${RG} --query '[].name' -o tsv | sed 's/\r$//' | xargs -I {} az container delete --name {} --resource-group ${RG} --yes && \
+az storage account list --resource-group ${RG} --query '[].name' -o tsv | sed 's/\r$//' | xargs -I {} az storage account delete -n {} -g ${RG} --yes
 ```
 
 ## Disclaimer
