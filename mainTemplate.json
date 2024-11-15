@@ -98,8 +98,8 @@
               ],
               "resources": {
                 "requests": {
-                  "cpu": 4,
-                  "memoryInGb": 4
+                  "cpu": 1,
+                  "memoryInGb": 1
                 }
               }
             }
@@ -209,8 +209,8 @@
               ],
               "resources": {
                 "requests": {
-                  "cpu": 4,
-                  "memoryInGb": 4
+                  "cpu": 1.5,
+                  "memoryInGb": 0.5
                 }
               },
               "volumeMounts": [
